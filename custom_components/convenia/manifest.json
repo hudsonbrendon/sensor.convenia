@@ -1,7 +1,7 @@
 {
   "domain": "convenia",
   "name": "Convenia",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "documentation": "https://github.com/hudsonbrendon/sensor.convenia",
   "dependencies": [],
   "codeowners": ["@hudsonbrendon"],

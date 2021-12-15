@@ -85,11 +85,28 @@ class ConveniaSensor(Entity):
         return len(self._payslips)
 
     @property
+    def last_payslip(self):
+        return [
+            {
+                "name": payslip.get("type").get("data").get("name"),
+                "image": "https://www.iconpacks.net/icons/2/free-pdf-icon-3375-thumb.png",
+                "month": payslip.get("month"),
+                "year": payslip.get("year"),
+                "file": payslip.get("file"),
+                "type_id": payslip.get("type_id"),
+                "created_at": payslip.get("created_at"),
+                "updated_at": payslip.get("updated_at"),
+            }
+            for payslip in [self._payslips[0]]
+        ]
+
+    @property
     def payslips(self):
         """Abastecimento."""
         return [
             {
                 "name": payslip.get("type").get("data").get("name"),
+                "image": "https://www.iconpacks.net/icons/2/free-pdf-icon-3375-thumb.png",
                 "month": payslip.get("month"),
                 "year": payslip.get("year"),
                 "file": payslip.get("file"),
@@ -113,6 +130,7 @@ class ConveniaSensor(Entity):
         """Atributos."""
         return {
             "payslips": self.payslips,
+            "last_payslip": self.last_payslip,
         }
 
     def update(self):
