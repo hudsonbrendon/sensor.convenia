@@ -89,7 +89,7 @@ class ConveniaSensor(Entity):
         """Abastecimento."""
         return [
             {
-                "name": payslip.get("type").get("name"),
+                "name": payslip.get("type").get("data").get("name"),
                 "month": payslip.get("month"),
                 "year": payslip.get("year"),
                 "file": payslip.get("file"),
